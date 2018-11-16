@@ -1,18 +1,79 @@
-import React, { Component } from 'react'
-import EmployeeList from "./employee/EmployeeList"  // Import EmployeeList component
-import LocationList from "./locations/LocationList"  // Import LocationList component
+import React, { Component } from "react"
+import EmployeeList from "./employee/EmployeeList"
+import LocationList from "./locations/LocationList"
+import AnimalsList from "./animals/AnimalsList"
+import "./Kennel.css"
 
+class Kennel extends Component {
 
-export default class Kennel extends Component {
-    render() {
-        return (
-            <div>
-                <h3>Student Kennels</h3>
-                <h4>Nashville North Location</h4>
-                <h5>500 Puppy Way</h5>
-                <EmployeeList />
-                <LocationList />
-            </div>
-        );
+  employeesFromAPI = [
+    {
+      id: 1,
+      name: "Jessica Younker"
+    },
+    {
+      id: 2,
+      name: "Jordan Nelson"
+    },
+    {
+      id: 3,
+      name: "Zoe LeBlanc"
+    },
+    {
+      id: 4,
+      name: "Blaise Roberts"
     }
+  ]
+  locationsFromAPI = [
+    {
+      id: 1,
+      name: "Nashville East",
+      address: "1015 McClurkin Ave"
+    },
+    {
+      id: 2,
+      name: "Nashville South",
+      address: "300 Elberta Street"
+    }
+  ]
+
+  animalsFromAPI = [
+    {
+      id: 1,
+      name: "Dogs"
+    },
+    {
+      id: 2,
+      name: "Cats"
+    },
+    {
+      id: 3,
+      name: "Iguanas"
+    },
+    {
+      id: 4,
+      name: "Hamsters"
+    },
+    {
+      id: 5,
+      name: "Rabbits"
+    }
+  ]
+
+  state = {
+    employees: this.employeesFromAPI,
+    locations: this.locationsFromAPI,
+    animals: this.animalsFromAPI
+  }
+  render() {
+    return (
+      <article className="kennel">
+        <LocationList locations={this.state.locations} />
+        <EmployeeList employees={this.state.employees} />
+        <AnimalsList animals={this.state.animals} />
+      </article>
+    )
+  }
 }
+
+export default Kennel
