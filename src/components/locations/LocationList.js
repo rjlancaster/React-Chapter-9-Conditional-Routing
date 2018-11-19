@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-class LocationList extends Component {
+export default class LocationList extends Component {
   render() {
     return (
       <section className="locations list">
@@ -16,5 +16,3 @@ class LocationList extends Component {
     )
   }
 }
-
-export default LocationList

@@ -5,7 +5,7 @@ import "./Kennel.css"
 import "bootstrap/dist/css/bootstrap.min.css"
 
 
-class Kennel extends Component {
+export default class Kennel extends Component {
   render() {
     return (
       <React.Fragment>
@@ -15,5 +15,3 @@ class Kennel extends Component {
     )
   }
 }
-
-export default Kennel

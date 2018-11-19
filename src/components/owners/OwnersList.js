@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-class OwnersList extends Component {
+export default class OwnersList extends Component {
   render() {
     return (
       <section className="owners list">
@@ -16,5 +16,3 @@ class OwnersList extends Component {
     )
   }
 }
-
-export default OwnersList

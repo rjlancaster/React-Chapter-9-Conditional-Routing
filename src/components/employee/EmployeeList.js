@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-class EmployeeList extends Component {
+export default class EmployeeList extends Component {
   render() {
     return (
       <section className="employees list">
@@ -15,5 +15,3 @@ class EmployeeList extends Component {
     )
   }
 }
-
-export default EmployeeList
