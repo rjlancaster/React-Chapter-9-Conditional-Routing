@@ -8,6 +8,7 @@ import AnimalManager from '../modules/AnimalManager'
 import EmployeeManager from '../modules/EmployeeManager'
 import LocationManager from '../modules/LocationManager'
 import OwnerManager from '../modules/OwnerManager'
+import APIManager from '../modules/APIManager'
 export default class ApplicationViews extends Component {
   state = {
     employees: [],
