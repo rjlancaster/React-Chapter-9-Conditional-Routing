@@ -1,19 +1,17 @@
-const remoteURL = "http://localhost:5002"
+import APIManager from "./APIManager"
+class OwnerManager extends APIManager {
+  getOwner(id) {
+    return this.get(id)
+  }
 
-export default {
-  get(id) {
-    return fetch(`${remoteURL}/owners/${id}`)
-      .then(e => e.json())
-  },
   getAll() {
-    return fetch(`${remoteURL}/owners`)
-      .then(e => e.json())
-  },
+    return this.all()
+  }
   removeAndList(id) {
-    return fetch(`${remoteURL}/owners/${id}`, {
-      method: "DELETE"
-    })
+    return this.delete(id)
       .then(e => e.json())
-      .then(() => this.getAll())
+      .then(() => this.all())
   }
 }
+
+export default new OwnerManager("owners")
