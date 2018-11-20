@@ -17,65 +17,45 @@ export default class ApplicationViews extends Component {
   }
 
   componentDidMount() {
+    const newState = {}
 
     AnimalManager.getAll().then(allAnimals => {
-      this.setState({
-        animals: allAnimals
-      })
+      newState.animals = allAnimals
     })
     EmployeeManager.getAll().then(allEmployees => {
-      this.setState({
-        employees: allEmployees
-      })
+      newState.employees = allEmployees
     })
     LocationManager.getAll().then(allLocations => {
-      this.setState({
-        locations: allLocations
-      })
+      newState.locations = allLocations
     })
     OwnerManager.getAll().then(allOwners => {
-      this.setState({
-        owners: allOwners
+      newState.owners = allOwners
+    })
+      .then(() => {
+        this.setState(newState)
       })
-    })
   }
-  deleteAnimal = id => {
-    return fetch(`http://localhost:5002/animals/${id}`, {
-      method: "DELETE"
-    })
-      .then(e => e.json())
-      .then(() => fetch(`http://localhost:5002/animals`))
-      .then(e => e.json())
-      .then(animals => this.setState({
+
+  deleteAnimal = (id) => {
+    return AnimalManager.removeAndList(id)
+    .then(animals => this.setState({
         animals: animals
       })
-      )
+    )
   }
-
-  deleteEmployee = id => {
-    return fetch(`http://localhost:5002/employees/${id}`, {
-      method: "DELETE"
-    })
-      .then(e => e.json())
-      .then(() => fetch(`http://localhost:5002/employees`))
-      .then(e => e.json())
-      .then(employees => this.setState({
+  deleteEmployee = (id) => {
+    return EmployeeManager.removeAndList(id)
+    .then(employees => this.setState({
         employees: employees
       })
-      )
+    )
   }
-
-  deleteOwner = id => {
-    return fetch(`http://localhost:5002/owners/${id}`, {
-      method: "DELETE"
-    })
-      .then(e => e.json())
-      .then(() => fetch(`http://localhost:5002/owners`))
-      .then(e => e.json())
-      .then(owners => this.setState({
+  deleteOwner = (id) => {
+    return OwnerManager.removeAndList(id)
+    .then(owners => this.setState({
         owners: owners
       })
-      )
+    )
   }
 
   render() {
