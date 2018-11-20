@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
-
+import "./Owner.css"
 export default class OwnersList extends Component {
   render() {
     return (
-      <section className="owners list">
+      <section className="owners">
         {
           this.props.owners.map(owner =>
             <div key={owner.id} className="card list">
