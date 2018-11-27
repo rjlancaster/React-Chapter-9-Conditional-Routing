@@ -73,6 +73,18 @@ export default class ApplicationViews extends Component {
       animals: animals
     })
     )
+  addOwner = (owner) => OwnerManager.post(owner)
+    .then(() => OwnerManager.getAll())
+    .then(owners => this.setState({
+      owners: owners
+    })
+    )
+  addEmployee = (employee) => EmployeeManager.post(employee)
+    .then(() => EmployeeManager.getAll())
+    .then(employees => this.setState({
+      employees: employees
+    })
+    )
 
   render() {
     return (
@@ -93,7 +105,7 @@ export default class ApplicationViews extends Component {
         }} />
         <Route exact path="/employees" render={(props) => {
           if (this.isAuthenticated()) {
-            return <EmployeeList {...props} employees={this.state.employees} />
+            return <EmployeeList {...props} deleteEmployee={this.deleteEmployee} employees={this.state.employees} />
           } else {
             return <Redirect to="/login" />
           }
