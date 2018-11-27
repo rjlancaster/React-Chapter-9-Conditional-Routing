@@ -9,7 +9,6 @@ class EmployeeManager extends APIManager {
   }
   removeAndList(id) {
     return this.delete(id)
-      .then(e => e.json())
       .then(() => this.all())
   }
 }

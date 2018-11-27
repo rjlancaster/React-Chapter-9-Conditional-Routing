@@ -17,7 +17,7 @@ export default class AnimalDetail extends Component {
         <div key={animal.id} className="card">
           <div className="card-body">
             <h4 className="card-title">
-              <img src={dog} className="icon--dog" />
+              <img src={dog} className="icon--dog" alt="" />
               {animal.name}
             </h4>
             <h6 className="card-title">{animal.breed}</h6>

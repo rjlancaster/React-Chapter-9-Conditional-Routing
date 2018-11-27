@@ -17,7 +17,7 @@ export default class OwnerDetail extends Component {
         <div key={owner.id} className="card">
           <div className="card-body">
             <h4 className="card-title">
-              <img className="icon--dog" />
+              <img className="icon--dog" alt="" />
               {owner.name}
             </h4>
             <h6 className="card-title">{owner.breed}</h6>
